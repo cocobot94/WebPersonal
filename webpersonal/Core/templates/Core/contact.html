@@ -1,0 +1,24 @@
+{% extends 'Core/base.html' %} 
+{% block title %}Portada{% endblock %} {% block background %}{% load static %}{% static 'Core/img/contact-bg.jpg' %}{% endblock %}
+
+{% block headers %}
+<h1>Elier Jerez</h1>
+<span class="subheading">Ingeniero Informatico</span>
+{% endblock %} 
+
+{% block content %} 
+    <!-- Contenido Principal -->
+    {% for info in information %}
+      <div class="container">
+          <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+              <p></p>
+              <br>
+              <p><b>telephone:</b> +{{info.country}} {{ info.telephone }}</p>
+              <p><b>Email:</b> {{info.email}}</p>
+            </div>
+          </div>
+        </div>
+        <hr>
+    {% endfor %}
+{% endblock %}

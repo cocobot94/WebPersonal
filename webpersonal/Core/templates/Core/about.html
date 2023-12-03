@@ -1,0 +1,59 @@
+{% extends 'Core/base.html' %}
+
+{% block title %}About{% endblock %}
+{% block background %}{% load static %}{% static 'Core/img/about-bg.jpg' %}{% endblock %}
+
+{% block headers %}<h1>Elier Jerez</h1><span class="subheading">Ingeniero Informatico</span>{% endblock %}
+{% block content %}
+
+    <hr/>
+
+    <!-- Contenido Principal -->
+    {% for me in yo %}
+      <div class="container">
+        <div class="row">   
+          <div class="col-lg-3 col-md-4 offset-lg-1">
+            <img class="img-fluid avatar" src="{{me.image.url}} " alt="">
+          </div>
+          <div class="col-lg-7 col-md-8">
+            <h2 class="section-heading">{{me.name}}</h2>   
+            <p>{{me.content}}</p>
+          </div>
+        </div>  
+      </div>
+    {% endfor %}
+
+
+    <hr>
+    {% for item in items %}
+      <div class="container">
+        <div class="row">  
+          {% if item.image.url != None  %}
+            <div class="col-lg-3 col-md-4 offset-lg-1">
+              <img class="img-fluid avatar" src="{{item.image.url}}" alt="Avatar">
+            </div> 
+          {% else %}
+          <div class="col-lg-3 col-md-4 offset-lg-1">
+            <img class="img-fluid avatar" src="#" alt="Avatar">
+          </div>
+          {% endif %}
+          <div class="col-lg-7 col-md-8">
+            <h2 class="section-heading">{{item.title}}</h2>   
+            <p>{{ item.content }}</p>
+          </div>
+        </div>  
+      </div>
+      <hr>
+    {% endfor %}
+
+
+
+    <!-- jQuert y Bootstrap -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Scripts del template -->
+    <script src="js/clean-blog.min.js"></script>
+
+
+{% endblock %}
