@@ -1,1 +1,1 @@
-web: gunicorn webempresa.wsgi:application
+web: gunicorn webempresa.webempresa.wsgi:application
